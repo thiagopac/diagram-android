@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/BoardLayout"
+	android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"
+>
+<TableRow>
+<club.diagram.chess.ChessImageView android:id="@+id/a8" />
+<club.diagram.chess.ChessImageView android:id="@+id/b8" />
+<club.diagram.chess.ChessImageView android:id="@+id/c8" />
+<club.diagram.chess.ChessImageView android:id="@+id/d8" />
+<club.diagram.chess.ChessImageView android:id="@+id/e8" />
+<club.diagram.chess.ChessImageView android:id="@+id/f8" />
+<club.diagram.chess.ChessImageView android:id="@+id/g8" />
+<club.diagram.chess.ChessImageView android:id="@+id/h8" />
+</TableRow>
+<TableRow>
+<club.diagram.chess.ChessImageView android:id="@+id/a7" />
+<club.diagram.chess.ChessImageView android:id="@+id/b7" />
+<club.diagram.chess.ChessImageView android:id="@+id/c7" />
+<club.diagram.chess.ChessImageView android:id="@+id/d7" />
+<club.diagram.chess.ChessImageView android:id="@+id/e7" />
+<club.diagram.chess.ChessImageView android:id="@+id/f7" />
+<club.diagram.chess.ChessImageView android:id="@+id/g7" />
+<club.diagram.chess.ChessImageView android:id="@+id/h7" />
+</TableRow>
+<TableRow>
+<club.diagram.chess.ChessImageView android:id="@+id/a6" />
+<club.diagram.chess.ChessImageView android:id="@+id/b6" />
+<club.diagram.chess.ChessImageView android:id="@+id/c6" />
+<club.diagram.chess.ChessImageView android:id="@+id/d6" />
+<club.diagram.chess.ChessImageView android:id="@+id/e6" />
+<club.diagram.chess.ChessImageView android:id="@+id/f6" />
+<club.diagram.chess.ChessImageView android:id="@+id/g6" />
+<club.diagram.chess.ChessImageView android:id="@+id/h6" />
+</TableRow>
+<TableRow>
+<club.diagram.chess.ChessImageView android:id="@+id/a5" />
+<club.diagram.chess.ChessImageView android:id="@+id/b5" />
+<club.diagram.chess.ChessImageView android:id="@+id/c5" />
+<club.diagram.chess.ChessImageView android:id="@+id/d5" />
+<club.diagram.chess.ChessImageView android:id="@+id/e5" />
+<club.diagram.chess.ChessImageView android:id="@+id/f5" />
+<club.diagram.chess.ChessImageView android:id="@+id/g5" />
+<club.diagram.chess.ChessImageView android:id="@+id/h5" />
+</TableRow>
+<TableRow>
+<club.diagram.chess.ChessImageView android:id="@+id/a4" />
+<club.diagram.chess.ChessImageView android:id="@+id/b4" />
+<club.diagram.chess.ChessImageView android:id="@+id/c4" />
+<club.diagram.chess.ChessImageView android:id="@+id/d4" />
+<club.diagram.chess.ChessImageView android:id="@+id/e4" />
+<club.diagram.chess.ChessImageView android:id="@+id/f4" />
+<club.diagram.chess.ChessImageView android:id="@+id/g4" />
+<club.diagram.chess.ChessImageView android:id="@+id/h4" />
+</TableRow>
+<TableRow>
+<club.diagram.chess.ChessImageView android:id="@+id/a3" />
+<club.diagram.chess.ChessImageView android:id="@+id/b3" />
+<club.diagram.chess.ChessImageView android:id="@+id/c3" />
+<club.diagram.chess.ChessImageView android:id="@+id/d3" />
+<club.diagram.chess.ChessImageView android:id="@+id/e3" />
+<club.diagram.chess.ChessImageView android:id="@+id/f3" />
+<club.diagram.chess.ChessImageView android:id="@+id/g3" />
+<club.diagram.chess.ChessImageView android:id="@+id/h3" />
+</TableRow>
+<TableRow>
+<club.diagram.chess.ChessImageView android:id="@+id/a2" />
+<club.diagram.chess.ChessImageView android:id="@+id/b2" />
+<club.diagram.chess.ChessImageView android:id="@+id/c2" />
+<club.diagram.chess.ChessImageView android:id="@+id/d2" />
+<club.diagram.chess.ChessImageView android:id="@+id/e2" />
+<club.diagram.chess.ChessImageView android:id="@+id/f2" />
+<club.diagram.chess.ChessImageView android:id="@+id/g2" />
+<club.diagram.chess.ChessImageView android:id="@+id/h2" />
+</TableRow>
+<TableRow>
+<club.diagram.chess.ChessImageView android:id="@+id/a1" />
+<club.diagram.chess.ChessImageView android:id="@+id/b1" />
+<club.diagram.chess.ChessImageView android:id="@+id/c1" />
+<club.diagram.chess.ChessImageView android:id="@+id/d1" />
+<club.diagram.chess.ChessImageView android:id="@+id/e1" />
+<club.diagram.chess.ChessImageView android:id="@+id/f1" />
+<club.diagram.chess.ChessImageView android:id="@+id/g1" />
+<club.diagram.chess.ChessImageView android:id="@+id/h1" />
+</TableRow>
+
+</TableLayout>

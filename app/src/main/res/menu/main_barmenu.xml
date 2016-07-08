@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_scan"
+        android:title="@string/menu_scan_new_board"
+        android:showAsAction="never"/>
+    <item android:id="@+id/action_white"
+        android:title="@string/play_as_white"
+        android:showAsAction="never"/>
+    <item android:id="@+id/action_black"
+        android:title="@string/play_as_black"
+        android:showAsAction="never"/>
+    <item android:id="@+id/action_both"
+        android:title="@string/play_both"
+        android:showAsAction="never"/>
+</menu>

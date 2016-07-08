@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+	<dimen name="boardSquare">40dp</dimen>
+	<dimen name="boardSize">320dp</dimen>
+	
+	<dimen name="normalTextSize">10sp</dimen>
+	<dimen name="normalPaddingX">8dp</dimen>
+	<dimen name="normalPaddingY">1dp</dimen>
+	
+	<dimen name="headerTextSize">12sp</dimen>
+	<dimen name="headerPaddingX">8dp</dimen>
+	<dimen name="headerPaddingY">4dp</dimen>
+	
+	<dimen name="titleTextSize">30sp</dimen>
+
+    <dimen name="pgn_ply_1_width">40dp</dimen>
+    <dimen name="pgn_ply_2_width">14dp</dimen>
+    <dimen name="pgn_ply_height">22dp</dimen>
+
+	<dimen name="device_loaded">1px</dimen>
+</resources>
+
+	<!-- ply 1 = boardsize / 8 -->
+	<!-- ply 2 = boardsize / 24 -->
+	<!-- ply height = boardsize / 15 -->

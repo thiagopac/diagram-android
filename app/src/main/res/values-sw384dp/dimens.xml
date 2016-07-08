@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+	<dimen name="boardSize">384dp</dimen>
+
+    <dimen name="pgn_ply_1_width">48dp</dimen>
+    <dimen name="pgn_ply_2_width">16dp</dimen>
+    <dimen name="pgn_ply_height">26dp</dimen>
+
+	<dimen name="device_loaded">7px</dimen>
+</resources>
+
+<!-- NEXUS 4 4.7 POLEGADAS -->

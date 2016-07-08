@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="@android:color/white" android:id="@+id/LayoutMain">
+
+	<include
+        layout="@layout/board"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:id="@+id/includeboard" />
+	
+
+	<TextView android:layout_width="wrap_content" android:layout_height="@dimen/boardSize"
+		        android:id="@+id/includeboard" />
+
+	<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:layout_below="@+id/includeboard">
+
+		<TableLayout android:id="@+id/LayoutPlayButtons"
+			android:layout_width="fill_parent" android:layout_height="40dp"
+			android:background="#2d3e4e">
+			<TableRow
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:gravity="center_vertical|center_horizontal" >
+
+				<ImageButton android:id="@+id/ButtonBackAll" android:src="@drawable/navigation_back_all_item"
+					android:layout_height="25dip" android:layout_width="50dip" android:scaleType="fitXY"
+					android:layout_marginRight="30dip" />
+
+				<ImageButton android:id="@+id/ButtonPrevious"
+					android:layout_height="25dip" android:layout_width="25dip" android:scaleType="fitXY"
+					android:layout_margin="2dip"
+					android:src="@drawable/navigation_previous_item" />
+
+				<ProgressBar android:id="@+id/ProgressBarPlay" android:layout_width="40dip" android:layout_height="40dip"
+					style="?android:attr/progressBarStyleLarge" android:visibility="visible"
+					android:layout_margin="2dip"
+				/>
+
+				<ImageButton android:id="@+id/ButtonNext" android:src="@drawable/navigation_next_item"
+					android:layout_height="25dip" android:layout_width="25dip" android:scaleType="fitXY"
+					android:layout_margin="2dip"
+					android:layout_column="4" />
+
+				<ImageButton android:id="@+id/ButtonForwardAll" android:src="@drawable/navigation_forward_all_item"
+					android:layout_height="25dip" android:layout_width="50dip" android:scaleType="fitXY"
+					android:layout_column="5"
+					android:layout_marginLeft="30dip" />
+
+			</TableRow>
+		</TableLayout>
+
+		<ScrollView android:id="@+id/VScrollViewHistory"
+            android:layout_width="fill_parent" android:layout_height="fill_parent"
+            android:background="@android:color/white" android:textColor="@color/textColor"
+            android:fadingEdge="none"
+			android:layout_below="@+id/LayoutPlayButtons"
+			android:layout_above="@+id/relativeLayout">
+			<com.wefika.flowlayout.FlowLayout
+				xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/LayoutHistory"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="start|top" />
+        </ScrollView>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="50dp"
+			android:background="#DB5538"
+			android:layout_alignParentBottom="true"
+			android:gravity="center_vertical"
+			android:id="@+id/relativeLayout">
+
+			<ImageButton android:id="@+id/ButtonMenu" android:src="@drawable/bar_menu"
+				android:layout_height="50dip" android:layout_width="50dip" android:scaleType="fitXY"
+				android:layout_column="5"
+				android:layout_alignParentLeft="false"
+				android:layout_alignParentTop="false"
+				android:layout_alignParentBottom="false"
+				android:layout_marginLeft="10dp" />
+
+			<ImageButton android:id="@+id/ButtonFlip" android:src="@drawable/bar_flip"
+				android:layout_height="50dip" android:layout_width="50dip" android:scaleType="fitXY"
+				android:layout_column="5"
+				android:layout_centerVertical="true"
+				android:layout_alignParentRight="true"
+				android:layout_alignParentEnd="true"
+				android:layout_marginRight="10dp" />
+
+			<ImageView
+				android:layout_width="132dip"
+				android:layout_height="30dip"
+				android:id="@+id/imageView"
+				android:src="@drawable/bar_logo"
+				android:layout_centerVertical="true"
+				android:layout_centerHorizontal="true" />
+
+		</RelativeLayout>
+
+	</RelativeLayout>
+
+</RelativeLayout>

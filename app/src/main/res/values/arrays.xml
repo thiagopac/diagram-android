@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="start_menu">
+		<item>@string/start_play</item>
+    </string-array>
+     <string-array name="promotionpieces">
+        <item>@string/choice_queen</item>
+        <item>@string/choice_rook</item>
+        <item>@string/choice_bishop</item>
+        <item>@string/choice_knight</item>
+    </string-array>
+    <string-array name="colorschemes">
+        <item>Yellow</item>
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Grey</item>
+        <item>Brown</item>
+        <item>Red</item>
+    </string-array>
+    <string-array name="field_files">
+    	<item>none</item>
+    	<item>a</item>
+    	<item>b</item>
+    	<item>c</item>
+    	<item>d</item>
+    	<item>e</item>
+    	<item>f</item>
+    	<item>g</item>
+    	<item>h</item>
+    </string-array>
+    <string-array name="localearray">
+        <item>English</item>
+    </string-array>
+    <string-array name="localeKeyarray">
+        <item>en</item>
+    </string-array>
+</resources>

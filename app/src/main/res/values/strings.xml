@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Diagram</string>
+    <string name="app_name_play">Play</string>
+
+    <string name="language">en</string>
+
+    <string name="start_play">Play</string>
+
+    <string name="button_play">Play</string>
+    <string name="button_undo">Undo</string>
+    <string name="button_ok">OK</string>
+
+    <string name="alert_yes">Yes</string>
+    <string name="alert_no">No</string>
+    <string name="alert_cancel">Cancel</string>
+    <string name="alert_ok">OK</string>
+
+    <!-- MAIN BAR MENU -->
+    <string name="menu_scan_new_board">Scan new board</string>
+    <string name="play_as_white">Play as White</string>
+    <string name="play_as_black">Play as Black</string>
+    <string name="play_both">Play both</string>
+    <!-- FIM MAIN BAR MENU-->
+
+    <string name="state_play">in play</string>
+    <string name="state_draw">draw</string>
+    <string name="state_draw_material">draw (material)</string>
+    <string name="state_draw_50">draw (50 move rule)</string>
+    <string name="state_draw_stalemate">draw (stalemate)</string>
+    <string name="state_draw_repeat">draw (3-fold repetition)</string>
+    <string name="state_mate">checkmated</string>
+    <string name="state_check">check</string>
+    <string name="state_time">forfeits on time</string>
+    <string name="state_resigned">resigned</string>
+    <string name="state_aborted">aborted</string>
+    <string name="state_adjourned">adjourned</string>
+
+    <string name="title_castle">Castle</string>
+    <string name="title_pick_promo">Promote to</string>
+    <string name="choice_queen">Queen</string>
+    <string name="choice_rook">Rook</string>
+    <string name="choice_bishop">Bishop</string>
+    <string name="choice_knight">Knight</string>
+
+    <string name="msg_illegal_move">Illegal move</string>
+    <string name="msg_state_format">%1$s</string>
+    <string name="msg_wait">Please wait&#8230;</string>
+    <string name="msg_setup_turn_white">white</string>
+    <string name="msg_setup_turn_black">black</string>
+    <string name="msg_setup_enpassant">En-passant square</string>
+    <string name="msg_setup_castle_white">White</string>
+    <string name="msg_setup_castle_black">Black</string>
+
+    <string name="err_load_fen">FEN chess position could not be loaded</string>
+    <string name="err_load_pgn">PGN chess history could not be loaded</string>
+
+</resources>
