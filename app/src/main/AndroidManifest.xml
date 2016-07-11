@@ -1,49 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="club.diagram.chess"
-      android:versionCode="1"
-      android:versionName="0.0.1"
-      android:installLocation="auto">
-    <application android:name=".MyApplication" android:icon="@drawable/icon" android:label="@string/app_name"
-    	android:theme="@style/ChessTheme" android:debuggable="true">
-        <activity android:name=".main" android:label="@string/app_name" android:screenOrientation="portrait" android:launchMode="singleTask" android:alwaysRetainTaskState="true">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
+    package="club.diagram.chess"
+    android:installLocation="auto"
+    android:versionCode="1"
+    android:versionName="0.0.1">
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="false" />
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FULLSCREEN" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.REAL_GET_TASKS" />
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+
+    <application
+        android:name=".MyApplication"
+        android:debuggable="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@style/ChessTheme">
+        <activity
+            android:name=".main"
+            android:alwaysRetainTaskState="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-                <data android:scheme="diagramclub"/>
+
+                <data android:scheme="diagramclub" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
-		<activity
-			android:name=".QrcodeScanner"
-			android:label="@string/app_name" android:theme="@style/Theme.AppCompat"
-			android:screenOrientation="portrait"/>
+        <activity
+            android:name=".QrcodeScanner"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat" />
 
-		<!-- Register AnalyticsReceiver and AnalyticsService to support background
-      dispatching on non-Google Play devices -->
-		<receiver android:name="com.google.android.gms.analytics.AnalyticsReceiver"
-			android:enabled="true">
-			<intent-filter>
-				<action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH" />
-			</intent-filter>
-		</receiver>
-		<service android:name="com.google.android.gms.analytics.AnalyticsService"
-			android:enabled="true"
-			android:exported="false"/>
+        <!--
+      Register AnalyticsReceiver and AnalyticsService to support background
+      dispatching on non-Google Play devices
+        -->
+        <receiver
+            android:name="com.google.android.gms.analytics.AnalyticsReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.analytics.AnalyticsService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity android:name=".SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
-    <supports-screens 
-    	android:largeScreens="true"
-        android:normalScreens="true"
-        android:smallScreens="false"
-        android:anyDensity="true" />
-    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
-    <uses-permission android:name="android.permission.CAMERA" />
-	<uses-permission android:name="android.permission.FULLSCREEN" />
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.REAL_GET_TASKS" />
-	<uses-permission android:name="android.permission.REORDER_TASKS" />
+
 </manifest>
