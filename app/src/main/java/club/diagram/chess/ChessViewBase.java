@@ -179,7 +179,7 @@ public class ChessViewBase{
 		//TEMA PADRÃO CINZA CLARO
 		ChessImageView._arrColorScheme[0][0] = 0xffECECF0; //cinza claro
 		ChessImageView._arrColorScheme[0][1] = 0xffffffff; //branco
-		ChessImageView._arrColorScheme[0][2] = 0xccf3ed4b; //amarelo
+		ChessImageView._arrColorScheme[0][2] = 0xaaf3f372; //amarelo
 
 		for(int i = 0; i < 64; i++){
 			_arrImages[i].setOnClickListener(ocl);

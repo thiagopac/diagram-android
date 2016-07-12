@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Vibrator;
@@ -17,7 +16,6 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Timer;
@@ -29,6 +27,10 @@ import club.chess.board.BoardConstants;
 import club.chess.board.BoardMembers;
 import club.chess.board.ChessBoard;
 import com.wefika.flowlayout.FlowLayout;
+
+import io.fabric.sdk.android.Fabric;
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.CustomEvent;
 /**
  *
  */
@@ -81,6 +83,8 @@ public class ChessView extends UI {
         super();
         _parent = (ChessActivity) activity;
         _view = new ChessViewBase(activity);
+
+        Fabric.with(_parent, new Answers());
 
         _playMode = HUMAN_HUMAN;
         _bAutoFlip = false;
@@ -613,34 +617,37 @@ public class ChessView extends UI {
 
         int state = _jni.getState();
         int res = chessStateToR(state);
+        Log.i("getHashKey: ", String.valueOf(_jni.getHashKey()));
+
+        SharedPreferences prefs = this.getPrefs();
+        long lastHashKey = prefs.getLong("lastHashKey", 0);
 
         String strState = _parent.getString(res);
 
         if (!strState.equals("in play") && !strState.equals("check") && !strState.equals("forfeits on time") && !strState.equals("resigned") && !strState.equals("aborted") && !strState.equals("adjourned")) {
 
-            if (strState.equals("draw")) {
-//                showAlert("Diagram", "DRAW");
-                _parent.doToast("DRAW");
-            }
-            if (strState.equals("draw (material)")) {
-//                showAlert("DRAW", "DRAW");
-                _parent.doToast("DRAW");
-            }
-            if (strState.equals("draw (50 move rule)")) {
-//                showAlert("DRAW", "50 NON-REVERSIBLE MOVES");
-                _parent.doToast("DRAW - 50 NON-REVERSIBLE MOVES");
-            }
-            if (strState.equals("draw (stalemate)")) {
-//                showAlert("DRAW", "STALEMATE");
-                _parent.doToast("DRAW - STALEMATE");
-            }
-            if (strState.equals("draw (3-fold repetition)")) {
-//                showAlert("DRAW", "3rd REPETITION");
-                _parent.doToast("DRAW - 3rd REPETITION");
-            }
-            if (strState.equals("checkmated")) {
-//                showAlert("Diagram", "CHECKMATE");
-                _parent.doToast("CHECKMATE");
+            if(lastHashKey != _jni.getHashKey()) {
+
+                if (strState.equals("draw (material)")) {
+                    showAlert("Draw", "No mate possible");
+                    onKeyMetric("Draw", "Reason", "No mate possible");
+                }
+                if (strState.equals("draw (50 move rule)")) {
+                    showAlert("Draw", "50 non-reversible moves");
+                    onKeyMetric("Draw", "Reason", "50 non-reversible moves");
+                }
+                if (strState.equals("draw (stalemate)")) {
+                    showAlert("Draw", "Stalemate");
+                    onKeyMetric("Draw", "Reason", "Stalemate");
+                }
+                if (strState.equals("draw (3-fold repetition)")) {
+                    showAlert("Draw", "3rd repetition");
+                    onKeyMetric("Draw", "Reason", "3rd repetition");
+                }
+                if (strState.equals("checkmated")) {
+                    showAlert(_jni.getTurn() == 0 ? "White wins" : "Black wins", "Checkmate");
+                    onKeyMetric("Checkmate", "Winner", _jni.getTurn() == 0 ? "White" : "Black");
+                }
             }
         }
     }
@@ -649,7 +656,7 @@ public class ChessView extends UI {
     public void showAlert(String title, String msg){
 
         AlertDialog.Builder builder = new AlertDialog.Builder(_parent);
-        builder.setTitle(R.string.app_name);
+        builder.setTitle(title);
         builder.setMessage(msg);
         builder.setPositiveButton(R.string.alert_ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int item) {
@@ -658,6 +665,19 @@ public class ChessView extends UI {
         });
         AlertDialog alert = builder.create();
         alert.show();
+
+        SharedPreferences.Editor editor = _parent.getPrefs().edit();
+        editor.putLong("lastHashKey", _jni.getHashKey());
+        editor.commit();
+    }
+
+
+    public static SharedPreferences getPrefs(Activity activity){
+        return activity.getSharedPreferences("ChessPlayer", Activity.MODE_PRIVATE);
+    }
+
+    public SharedPreferences getPrefs(){
+        return getPrefs(_parent);
     }
 
     public void scrollToEnd() {
@@ -680,6 +700,11 @@ public class ChessView extends UI {
         if (_dpadPos == -1) {
             _dpadPos = _jni.getTurn() == ChessBoard.BLACK ? ChessBoard.e8 : ChessBoard.e1;
         }
+    }
+
+    protected void onKeyMetric(String event, String key, String value) {
+        Answers.getInstance().logCustom(new CustomEvent(event)
+                .putCustomAttribute(key, value));
     }
 
 }

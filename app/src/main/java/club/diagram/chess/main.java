@@ -28,6 +28,11 @@ import club.chess.JNI;
 import club.chess.PGNColumns;
 import club.chess.board.BoardConstants;
 
+import io.fabric.sdk.android.Fabric;
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.CustomEvent;
+
+
 public class main extends ChessActivity implements OnInitListener, GestureDetector.OnGestureListener {
 
     public static final String TAG = "main";
@@ -49,12 +54,10 @@ public class main extends ChessActivity implements OnInitListener, GestureDetect
     private boolean _skipReturn;
     public JNI _jni;
 
-    /**
-     * Called when the activity is first created.
-     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Answers());
 
         _uriNotification = null;
 
@@ -353,9 +356,23 @@ public class main extends ChessActivity implements OnInitListener, GestureDetect
 
                 if (s.indexOf("1.") >= 0) {
                     //se for pgn
+
+                    if (qrCodeGame != null && !qrCodeGame.equals("")){
+                        onKeyMetric("PGN QR-Code scanned");
+                    }else if(urlGame != null && !urlGame.equals("")){
+                        onKeyMetric("PGN URL clicked");
+                    }
+
                     loadPGN(s);
                 } else {
                     //se for fen
+
+                    if (qrCodeGame != null && !qrCodeGame.equals("")){
+                        onKeyMetric("FEN QR-Code scanned");
+                    }else if(urlGame != null && !urlGame.equals("")){
+                        onKeyMetric("FEN URL clicked");
+                    }
+
                     loadFEN(s);
                 }
 
@@ -367,10 +384,16 @@ public class main extends ChessActivity implements OnInitListener, GestureDetect
         }
 
         _chessView.jumptoMove(_chessView.getArrPGNSize()+1);
+//        _chessView.jumptoMove(0);
         _chessView.OnResume(prefs);
         _chessView.updateState();
         super.onResume();
     }
+
+    public void onKeyMetric(String event) {
+        Answers.getInstance().logCustom(new CustomEvent(event));
+    }
+
 
     @Override
     protected void onPause() {
@@ -448,7 +471,6 @@ public class main extends ChessActivity implements OnInitListener, GestureDetect
 
                 _fGameRating = c.getFloat(c.getColumnIndex(PGNColumns.RATING));
 
-                trackEvent(TAG, "loadGame");
             } else {
                 _lGameID = 0; // probably deleted
             }

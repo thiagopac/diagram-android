@@ -87,7 +87,7 @@ public class MyBaseActivity extends android.app.Activity{
 			Log.d("main", e.getLocalizedMessage());
 		}
 	}
-	// @see http://stackoverflow.com/questions/9739498/android-action-bar-not-showing-overflow
+
 	public void makeActionOverflowMenuShown() {
 		makeActionOverflowMenuShown(this);
 	}
@@ -102,22 +102,18 @@ public class MyBaseActivity extends android.app.Activity{
 
 	public static void prepareWindowSettings(Activity activity) {
 		SharedPreferences prefs = getPrefs(activity);
-		if(prefs.getBoolean("fullScreen", true)){
-			activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		}
 
-		int configOrientation = activity.getResources().getConfiguration().orientation;
-		if(configOrientation == Configuration.ORIENTATION_LANDSCAPE) {
-			if(false == activity instanceof PreferenceActivity) {
-				activity.requestWindowFeature(Window.FEATURE_NO_TITLE);
-			}
-		} else {
-			try {
-				activity.getActionBar().setDisplayHomeAsUpEnabled(true);
-			} catch(Exception ex){
+//		Comentado para não esconder a barra de status com relógio e pushes
+//		if(prefs.getBoolean("fullScreen", true)){
+//			activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//		}
 
-			}
-		}
+        try {
+            activity.getActionBar().setDisplayHomeAsUpEnabled(true);
+        } catch(Exception ex){
+
+        }
+
 	}
 	public void prepareWindowSettings(){
 		prepareWindowSettings(this);
